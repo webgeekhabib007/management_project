@@ -21,7 +21,7 @@ void student_menu_func(){
     printf(".....................................\n\n\n");
 
     printf("Press any number from 0 to 1   :  \n");
-    printf("If you want to check your test marks, enter => 1\n");
+    printf("If you want to check test marks, enter => 1\n");
     printf("If you want go main menu,enter => 0\n\n\n");
 
     int response;

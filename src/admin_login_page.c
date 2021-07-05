@@ -45,7 +45,8 @@ void admin_logging_func(){
     scanf("%s", pword_from_input);
     printf("\n");
 
-
+    //reading file from admin_info.txt
+    //and storing them into admin structure
 
     FILE* admin_file;
     admin_file=fopen("./info_files/admin_info.txt","r");

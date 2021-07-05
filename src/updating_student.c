@@ -16,7 +16,10 @@ typedef struct
 {
     char name[11];
     char password[11];
-    char test_marks[5];
+    char email[100];
+    char test_marks1[5];
+    char test_marks2[5];
+    char roll_no[100];
 } Student;
 int taking_input12()
 {
@@ -90,9 +93,27 @@ void updating_student_func()
     i = 0;
     for (; i < strlen(s[2]); i++)
     {
-        student.test_marks[i] = s[2][i];
+        student.roll_no[i] = s[2][i];
     }
-    student.test_marks[i] = '\0';
+    student.roll_no[i] = '\0';
+    i = 0;
+    for (; i < strlen(s[3]); i++)
+    {
+        student.email[i] = s[3][i];
+    }
+    student.email[i] = '\0';
+    i=0;
+    for (; i < strlen(s[4]); i++)
+    {
+        student.test_marks1[i] = s[4][i];
+    }
+    student.test_marks1[i] = '\0';
+    i = 0;
+    for (; i < strlen(s[5]); i++)
+    {
+        student.test_marks2[i] = s[5][i];
+    }
+    student.test_marks2[i] = '\0';
     //printf("%s %s",teacher.course,teacher.password);
 
     printf("Enter password (must be 10 char) : ");
@@ -106,9 +127,13 @@ void updating_student_func()
         return;
     }
 
-    printf("Enter test marks : ");
-    char test_marks[100];
-    scanf("%s", test_marks);
+    printf("Enter test marks of course 1201 : ");
+    char test_marks1[100];
+    scanf("%s", test_marks1);
+   
+    printf("Enter test marks of course 1202 : ");
+    char test_marks2[100];
+    scanf("%s", test_marks2);
     printf("\n");
 
     int cnt = 0;
@@ -119,12 +144,20 @@ void updating_student_func()
     }
     student.password[cnt] = '\0';
     cnt = 0;
-    for (int i = 0; i < strlen(test_marks); i++)
+    for (int i = 0; i < strlen(test_marks1); i++)
     {
-        student.test_marks[i] = test_marks[i];
+        student.test_marks1[i] = test_marks1[i];
         cnt++;
     }
-    student.test_marks[cnt] = '\0';
+    student.test_marks1[cnt] = '\0';
+
+    cnt = 0;
+    for (int i = 0; i < strlen(test_marks2); i++)
+    {
+        student.test_marks2[i] = test_marks2[i];
+        cnt++;
+    }
+    student.test_marks2[cnt] = '\0';
 
     char data[300];
     cnt = 0;
@@ -138,7 +171,13 @@ void updating_student_func()
     strcat(data, " ");
     strcat(data, pword);
     strcat(data, " ");
-    strcat(data, test_marks);
+    strcat(data, student.roll_no);
+    strcat(data, " ");
+    strcat(data, student.email);
+    strcat(data, " ");
+    strcat(data, student.test_marks1);
+    strcat(data, " ");
+    strcat(data, student.test_marks2);
     //printf("%s",data);
 
     char cmd[PATH_MAX] = "echo ";
@@ -147,6 +186,7 @@ void updating_student_func()
     strcat(cmd, working_dir);
 
     system(cmd);
+    //printf("%s",cmd);
 
     printf("\n Student info is updated successfully..");
 

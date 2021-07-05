@@ -23,24 +23,41 @@ void creating_student_func()
 {
     system("cls");
     printf("\n\nThis panel is for creating new student account .. \n\n");
-    printf("You should provide student name,\nStudent account password,test marks\n\n");
+    printf("You should provide student name,\nStudent account password,test marks\nroll number nad email\n");
     printf("If student already exist,it will just update the info\n");
     printf("........................................................\n\n\n");
-    char student_name[100], pword[100], test_marks[100];
+    char student_name[100], pword[100], test_marks1[100],test_marks2[100], email[100],roll_no[100];
+
+    //taking student name
     printf("Enter student's name : ");
     scanf("%s", student_name);
     printf("\n");
 
+    //taking student password
     printf("Enter student's password (10 char only): ");
     scanf("%s", pword);
     printf("\n");
+    //checking whether it is 10 char log or not
     if (strlen(pword) != 10)
     {
         creating_student_func();
         return;
     }
-    printf("Enter student's test_marks : ");
-    scanf("%s", test_marks);
+    //taking student roll no
+    printf("Enter student's roll No. : ");
+    scanf("%s", roll_no);
+    printf("\n");
+    //taking student email
+    printf("Enter student's email : ");
+    scanf("%s", email);
+    printf("\n");
+    //taking student marks for both course
+    printf("Enter student's test_marks of course 1201 : ");
+    scanf("%s", test_marks1);
+    printf("\n");
+
+    printf("Enter student's test_marks of course 1202 : ");
+    scanf("%s", test_marks2);
     printf("\n");
 
     char data[300], filename[100];
@@ -57,7 +74,13 @@ void creating_student_func()
     strcat(data, " ");
     strcat(data, pword);
     strcat(data, " ");
-    strcat(data, test_marks);
+    strcat(data, roll_no);
+    strcat(data, " ");
+    strcat(data, email);
+    strcat(data, " ");
+    strcat(data, test_marks1);
+    strcat(data, " ");
+    strcat(data, test_marks2);
 
     strcat(filename, ".txt");
 
@@ -70,11 +93,12 @@ void creating_student_func()
     strcat(cmd, data);
     strcat(cmd, " > ");
     strcat(cmd, working_dir);
-
+    //printf("%s",cmd);
     system(cmd);
 
     printf("\nStudent info is successfully updated\n");
 
+    
     printf("\n\n");
 
     printf("Press any number from 0 to 4   :  \n");

@@ -29,6 +29,8 @@ void admin_menu_func(){
     printf("If you want update student info, enter => 4\n");
     printf("If you want go main menu,enter => 0\n\n");
 
+    //taking response and selecting next step
+
     int response;
     level:
     response=taking_input2();

@@ -13,7 +13,10 @@ typedef struct
 {
     char name[11];
     char password[11];
-    char test_marks[5];
+    char email[100];
+    char test_marks1[5];
+    char test_marks2[5];
+    char roll_no[100];
 } Student;
 
 int taking_input8()
@@ -111,13 +114,38 @@ void finding_student_func(){
         }
         student.name[i] = '\0';
         i = 0;
+        for (; i < strlen(s[1]); i++)
+        {
+            student.password[i] = s[1][i];
+        }
+        student.password[i] = '\0';
+        i = 0;
         for (; i < strlen(s[2]); i++)
         {
-            student.test_marks[i] = s[2][i];
+            student.roll_no[i] = s[2][i];
         }
-        student.test_marks[i] = '\0';
+        student.roll_no[i] = '\0';
+        i = 0;
+        for (; i < strlen(s[3]); i++)
+        {
+            student.email[i] = s[3][i];
+        }
+        student.email[i] = '\0';
+        i = 0;
+        for (; i < strlen(s[4]); i++)
+        {
+            student.test_marks1[i] = s[4][i];
+        }
+        student.test_marks1[i] = '\0';
+        i = 0;
+        for (; i < strlen(s[5]); i++)
+        {
+            student.test_marks2[i] = s[5][i];
+        }
+        student.test_marks2[i] = '\0';
 
-        printf("\n \n Name : %s \nTest marks : %s \n",student.name,student.test_marks);
+        printf("Info about your student is : \n");
+        printf("\tName :%s \n\tRoll No : %s \n\tEmail : %s \n \n",student.name,student.roll_no,student.email);
         printf("\n\n\n");
 
         printf("Press any number from 0 to 3   :  \n");

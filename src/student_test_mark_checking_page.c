@@ -6,13 +6,14 @@
 #include "./include/student_test_mark_checking_page.h"
 #include "./include/starting_page.h"
 
-
-
 typedef struct
 {
     char name[11];
     char password[11];
-    char test_marks[5];
+    char email[100];
+    char test_marks1[5];
+    char test_marks2[5];
+    char roll_no[100];
 } Student;
 
 int taking_input5()
@@ -86,13 +87,32 @@ void student_test_mark_checking_func(){
     i = 0;
     for (; i < strlen(s[2]); i++)
     {
-        student.test_marks[i] = s[2][i];
+        student.roll_no[i] = s[2][i];
     }
-    student.test_marks[i] = '\0';
-    printf("Here is your test marks :  %s\n\n",student.test_marks);
+    student.roll_no[i] = '\0';
+    i = 0;
+    for (; i < strlen(s[3]); i++)
+    {
+        student.email[i] = s[3][i];
+    }
+    student.email[i] = '\0';
+    i = 0;
+    for (; i < strlen(s[4]); i++)
+    {
+        student.test_marks1[i] = s[4][i];
+    }
+    student.test_marks1[i] = '\0';
+    i = 0;
+    for (; i < strlen(s[5]); i++)
+    {
+        student.test_marks2[i] = s[5][i];
+    }
+    student.test_marks2[i] = '\0';
+    printf("Here is your test marks :  \n");
+    printf("Course 1201  : %s\nCourse 1202  : %s \n\n",student.test_marks1,student.test_marks2);
 
     printf("Press any number from 0 to 1   :  \n");
-    printf("If you want to check your test marks again, enter => 1\n");
+    printf("If you want to check test marks again, enter => 1\n");
     printf("If you want go main menu,enter => 0\n\n\n");
 
     int response;

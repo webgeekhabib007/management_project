@@ -15,9 +15,10 @@
 
 typedef struct
 {
-    char name[11];
-    char password[11];
-    char course[11];
+    char name[100];
+    char password[100];
+    char course[100];
+    char email[100];
 } Teacher;
 
 int taking_input11()
@@ -93,6 +94,12 @@ void updating_teacher_func(){
         teacher.course[i] = s[2][i];
     }
     teacher.course[i] = '\0';
+    i = 0;
+    for (; i < strlen(s[3]); i++)
+    {
+        teacher.email[i] = s[3][i];
+    }
+    teacher.email[i] = '\0';
     //printf("%s %s",teacher.course,teacher.password);
 
     printf("Enter password (must be 10 char) : ");
@@ -107,6 +114,10 @@ void updating_teacher_func(){
     printf("Enter course : ");
     char course[100];
     scanf("%s", course);
+    
+    printf("Enter email : ");
+    char email[100];
+    scanf("%s", email);
     printf("\n");
 
     int cnt=0;
@@ -121,6 +132,12 @@ void updating_teacher_func(){
         cnt++;
     }
     teacher.course[cnt]='\0';
+    cnt=0;
+    for(int i=0;i<strlen(email);i++){
+        teacher.email[i]=email[i];
+        cnt++;
+    }
+    teacher.email[cnt]='\0';
 
 
     char data[300];
@@ -132,9 +149,11 @@ void updating_teacher_func(){
     data[cnt]='\0';
     
     strcat(data, " ");
-    strcat(data,pword);
+    strcat(data,teacher.password);
     strcat(data, " ");
-    strcat(data,course);
+    strcat(data,teacher.course);
+    strcat(data, " ");
+    strcat(data, teacher.email);
     //printf("%s",data);
 
     char cmd[PATH_MAX] = "echo ";

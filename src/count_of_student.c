@@ -20,12 +20,15 @@ int taking_input6()
 void count_of_student_func(){
     system("cls");
 
-
+    //reading current working directory 
+    // concatenate with students directtory
     char working_dir[PATH_MAX];
     getcwd(working_dir,sizeof(working_dir));
     strcat(working_dir,"\\info_files\\students");
 
     printf(" this :: %s \n",working_dir);
+
+    //creating system command to create new student_name.txt file
     char cmd_to_find_num[PATH_MAX]="dir /a:-d /s /b \"";
     strcat(cmd_to_find_num,working_dir);
     strcat(cmd_to_find_num,"\" | find /v /c \"::\"");

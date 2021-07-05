@@ -22,10 +22,10 @@ int taking_input9()
 void creating_teacher_func(){
     system("cls");
     printf("\n\nThis panel is for creating new teacher account .. \n\n");
-    printf("You should provide teacher name,\nTeacher account password,course title\n\n");
+    printf("You should provide teacher name,\nTeacher account password,course code\n\n");
     printf("If teacher already exist,it will just update the info\n");
     printf("........................................................\n\n\n");
-    char teacher_name[100],pword[100],course[100];
+    char teacher_name[100],pword[100],course[100],email[100];
     printf("Enter teacher's name : ");
     scanf("%s",teacher_name);
     printf("\n");
@@ -39,6 +39,10 @@ void creating_teacher_func(){
     }
     printf("Enter teacher's course : ");
     scanf("%s", course);
+    printf("\n");
+
+    printf("Enter teacher's email : ");
+    scanf("%s", email);
     printf("\n");
 
     char data[300],filename[100];
@@ -55,6 +59,8 @@ void creating_teacher_func(){
     strcat(data,pword);
     strcat(data, " ");
     strcat(data,course);
+    strcat(data," ");
+    strcat(data,email);
     
     strcat(filename,".txt");
 
@@ -69,7 +75,7 @@ void creating_teacher_func(){
     strcat(cmd,working_dir);
     
     system(cmd);
-
+    //printf("%s",cmd);
     printf("\nTeacher info is successfully updated..");
 
     printf("\n\n");
