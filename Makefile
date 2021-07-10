@@ -41,3 +41,9 @@ clean:
 	del *.exe
 	cd obj && del *.o && cd ../
 	cd deps && del *.d && cd ../
+
+clean-li:
+	rm ${APPNAME}
+	cd obj && rm *.o && cd ../
+	cd deps && rm *.d && cd ../
+
