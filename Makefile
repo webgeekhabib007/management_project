@@ -12,9 +12,9 @@ APPNAME:= Batch2k19
 
 #Don't touch anything below
 
-SRCDIR:=src
-OBJDIR:=obj
-DEPDIR:=deps
+SRCDIR:=./src
+OBJDIR:=./obj
+DEPDIR:=./deps
 
 src:=$(wildcard $(SRCDIR)/*$(EXT))
 obj:=$(src:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
